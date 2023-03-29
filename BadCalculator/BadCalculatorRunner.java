@@ -7,9 +7,10 @@ public static void main(String[] args){
     System.out.println("Shall we Fortnite?y/n");
     if(pp.next().equals("y")){
         Mason.equationInput();
+        Mason.scanForParentheses(Mason.getEquation());
     }
     else{
-        pp.close();
+        pp.close();)
         System.exit(0);
     }
 }
