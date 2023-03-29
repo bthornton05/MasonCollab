@@ -27,7 +27,7 @@ public class BadCalculator {
     }
     public void scanForOperators(String eqn){
         while(!(eqn.substring(operatorToken, operatorToken + 1).equals("+")) || !(eqn.substring(operatorToken, operatorToken + 1).equals("-")) || !(eqn.substring(operatorToken, operatorToken + 1).equals("*")) || !(eqn.substring(operatorToken, operatorToken + 1).equals("/")) || !(eqn.substring(operatorToken, operatorToken + 1).equals("^"))){
-            tokenLeft++;
+            operatorToken++;
         }
             if(eqn.substring(operatorToken, operatorToken + 1).equals("^")){
                 try{
