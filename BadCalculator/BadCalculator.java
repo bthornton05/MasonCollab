@@ -45,7 +45,7 @@ public class BadCalculator {
                     scanForOperators(eqn.substring(tokenLeft, tokenRight));
                 }
             }
-            else if(equation.substring(operatorToken, operatorToken + 1).equals("/")){
+            else if(eqn.substring(operatorToken, operatorToken + 1).equals("/")){
                 try{
                     number = Double.parseDouble((eqn.substring(0,operatorToken - 1))) / Double.parseDouble(equation.substring(operatorToken+1, eqn.length()));
                 }
@@ -53,7 +53,7 @@ public class BadCalculator {
                     scanForOperators(eqn.substring(tokenLeft, tokenRight));
                 }
             }
-            else if(equation.substring(operatorToken, operatorToken + 1).equals("+")){
+            else if(eqn.substring(operatorToken, operatorToken + 1).equals("+")){
                 try{
                     number = Double.parseDouble((eqn.substring(0,operatorToken - 1))) + Double.parseDouble(equation.substring(operatorToken+1, eqn.length()));
                 }
@@ -61,7 +61,7 @@ public class BadCalculator {
                     scanForOperators(eqn.substring(tokenLeft, tokenRight));
                 }
             }
-            else if(equation.substring(operatorToken, operatorToken + 1).equals("-")){
+            else if(eqn.substring(operatorToken, operatorToken + 1).equals("-")){
                 try{
                     number = Double.parseDouble((eqn.substring(0,operatorToken - 1))) - Double.parseDouble(equation.substring(operatorToken+1, eqn.length()));
                 }
