@@ -10,7 +10,7 @@ public static void main(String[] args){
         Mason.scanForParentheses(Mason.getEquation());
     }
     else{
-        pp.close();)
+        pp.close();
         System.exit(0);
     }
 }
