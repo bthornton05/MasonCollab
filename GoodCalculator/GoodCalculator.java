@@ -67,7 +67,7 @@ public class GoodCalculator { //Made by Nickolas Holzer and Bradley Thornton wit
             int term = (int)Math.pow(previousTerm, nextTerm);
             String miniTerm = eq.substring(previousTermIndex, nextTermIndex + 1);
             eq = eq.replace(miniTerm, "" + term);
-            System.out.println(eq);
+            //System.out.println(eq);
             goodCalculate(eq);
         }
         if(eq.indexOf("*") > -1){ //Multiplication operator
@@ -79,7 +79,7 @@ public class GoodCalculator { //Made by Nickolas Holzer and Bradley Thornton wit
             int term = previousTerm * nextTerm;
             String miniTerm = eq.substring(previousTermIndex, nextTermIndex + 1);
             eq = eq.replace(miniTerm, "" + term);
-            System.out.println(eq);
+            //System.out.println(eq);
             goodCalculate(eq);
         }
         if(eq.indexOf("/") > -1){ //Division operator
@@ -91,7 +91,7 @@ public class GoodCalculator { //Made by Nickolas Holzer and Bradley Thornton wit
             int term = previousTerm / nextTerm;
             String miniTerm = eq.substring(previousTermIndex, nextTermIndex + 1);
             eq = eq.replace(miniTerm, "" + term);
-            System.out.println(eq);
+            //System.out.println(eq);
             goodCalculate(eq);
         }
         if(eq.indexOf("+") > -1){ //Addition operator
@@ -103,7 +103,7 @@ public class GoodCalculator { //Made by Nickolas Holzer and Bradley Thornton wit
             int term = previousTerm + nextTerm;
             String miniTerm = eq.substring(previousTermIndex, nextTermIndex + 1);
             eq = eq.replace(miniTerm, "" + term);
-            System.out.println(eq);
+            //System.out.println(eq);
             goodCalculate(eq);
         }
         if(eq.indexOf("-") > -1){ //Subtraction operator
@@ -115,7 +115,7 @@ public class GoodCalculator { //Made by Nickolas Holzer and Bradley Thornton wit
             int term = previousTerm - nextTerm;
             String miniTerm = eq.substring(previousTermIndex, nextTermIndex + 1);
             eq = eq.replace(miniTerm, "" + term);
-            System.out.println(eq);
+            //System.out.println(eq);
             goodCalculate(eq);
         }
         return Integer.parseInt(eq); //Returns string equation as an integer
