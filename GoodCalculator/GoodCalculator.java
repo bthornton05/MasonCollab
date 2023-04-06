@@ -11,6 +11,9 @@ public class GoodCalculator { //Made by Nickolas Holzer and Bradley Thornton wit
     public String getEq(){ //Returns equation
         return eq;
     }
+    //public void setEq(String mini){
+        //eq = mini;
+    //}
     private int findPreviousTerm(String eq) { //Finds previous integer term value preceding operator
         for(int i = eq.length() - 1; i>= 0; i--){
             if(!Character.isDigit(eq.charAt(i))){
@@ -41,24 +44,24 @@ public class GoodCalculator { //Made by Nickolas Holzer and Bradley Thornton wit
             for(int i = eq.length() - 1; i>=0 ; i--){
                 if(eq.charAt(i) == '('){
                     pLeft = i;
-                    //System.out.println(pLeft);
+                    //System.out.println("pLeft: " + pLeft);
                     break;
                 }
             }
             for(int j = pLeft; j < eq.length(); j++){
                 if(eq.charAt(j) == ')'){
                     pRight = j;
-                    //System.out.println(pRight);
+                    //System.out.println("pRight: " + pRight);
                     break;
                 }
             }
             String replacedTerm = eq.substring(pLeft, pRight + 1);
-            //System.out.println(replacedTerm);
+            //System.out.println("Eq to replace: " + replacedTerm);
             eq = eq.replace(replacedTerm, "" + goodCalculate(eq.substring(pLeft + 1, pRight))); //Calls method recursively with innermost term to solve equation
-            //System.out.println(eq);
+            //System.out.println("Eq after replace: " + eq);
         }
 
-        if(eq.indexOf("^") > -1){ //Exponent operator
+        while(eq.indexOf("^") > -1){ //Exponent operator
             int eOperator = eq.indexOf("^");
             int previousTermIndex = findPreviousTerm(eq.substring(0,eOperator));
             int nextTermIndex = eOperator + findNextTerm(eq.substring(eOperator + 1, eq.length()));
@@ -68,9 +71,8 @@ public class GoodCalculator { //Made by Nickolas Holzer and Bradley Thornton wit
             String miniTerm = eq.substring(previousTermIndex, nextTermIndex + 1);
             eq = eq.replace(miniTerm, "" + term);
             //System.out.println(eq);
-            goodCalculate(eq);
         }
-        if(eq.indexOf("*") > -1){ //Multiplication operator
+        while(eq.indexOf("*") > -1){ //Multiplication operator
             int eOperator = eq.indexOf("*");
             int previousTermIndex = findPreviousTerm(eq.substring(0,eOperator));
             int nextTermIndex = eOperator + findNextTerm(eq.substring(eOperator + 1, eq.length()));
@@ -80,9 +82,8 @@ public class GoodCalculator { //Made by Nickolas Holzer and Bradley Thornton wit
             String miniTerm = eq.substring(previousTermIndex, nextTermIndex + 1);
             eq = eq.replace(miniTerm, "" + term);
             //System.out.println(eq);
-            goodCalculate(eq);
         }
-        if(eq.indexOf("/") > -1){ //Division operator
+        while(eq.indexOf("/") > -1){ //Division operator
             int eOperator = eq.indexOf("/");
             int previousTermIndex = findPreviousTerm(eq.substring(0,eOperator));
             int nextTermIndex = eOperator + findNextTerm(eq.substring(eOperator + 1, eq.length()));
@@ -92,9 +93,8 @@ public class GoodCalculator { //Made by Nickolas Holzer and Bradley Thornton wit
             String miniTerm = eq.substring(previousTermIndex, nextTermIndex + 1);
             eq = eq.replace(miniTerm, "" + term);
             //System.out.println(eq);
-            goodCalculate(eq);
         }
-        if(eq.indexOf("+") > -1){ //Addition operator
+        while(eq.indexOf("+") > -1){ //Addition operator
             int eOperator = eq.indexOf("+");
             int previousTermIndex = findPreviousTerm(eq.substring(0,eOperator));
             int nextTermIndex = eOperator + findNextTerm(eq.substring(eOperator + 1, eq.length()));
@@ -104,9 +104,8 @@ public class GoodCalculator { //Made by Nickolas Holzer and Bradley Thornton wit
             String miniTerm = eq.substring(previousTermIndex, nextTermIndex + 1);
             eq = eq.replace(miniTerm, "" + term);
             //System.out.println(eq);
-            goodCalculate(eq);
         }
-        if(eq.indexOf("-") > -1){ //Subtraction operator
+        while(eq.indexOf("-") > -1){ //Subtraction operator
             int eOperator = eq.indexOf("-");
             int previousTermIndex = findPreviousTerm(eq.substring(0,eOperator));
             int nextTermIndex = eOperator + findNextTerm(eq.substring(eOperator + 1, eq.length()));
@@ -116,7 +115,6 @@ public class GoodCalculator { //Made by Nickolas Holzer and Bradley Thornton wit
             String miniTerm = eq.substring(previousTermIndex, nextTermIndex + 1);
             eq = eq.replace(miniTerm, "" + term);
             //System.out.println(eq);
-            goodCalculate(eq);
         }
         return Integer.parseInt(eq); //Returns string equation as an integer
         }
